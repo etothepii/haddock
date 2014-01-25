@@ -1,0 +1,174 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package uk.co.etothepii.haddock.betfair.data;
+
+import com.betfair.publicapi.types.exchange.v5.BetTypeEnum;
+import com.betfair.publicapi.types.exchange.v5.PlaceBets;
+import java.util.ArrayList;
+import org.apache.log4j.Logger;
+import uk.co.etothepii.haddock.bettingconcepts.BetType;
+
+/**
+ *
+ * @author James Robinson for and on behalf of Etothepii Ltd
+ */
+public class RunnerPrices {
+
+    private static final Logger LOG = Logger.getLogger(RunnerPrices.class);
+
+    private final Runner runner;
+    private RunnerPrice[] prices;
+    private ArrayList<Integer> backIndices;
+    private ArrayList<Integer> layIndices;
+
+    public RunnerPrices(Runner runner) {
+        this.runner = runner;
+        prices = RunnerPrice.getCleanPrices(runner);
+        backIndices = new ArrayList<Integer>();
+        layIndices = new ArrayList<Integer>();
+    }
+
+    public double getAmount(double price) {
+        synchronized (runner) {
+            return getPrice(price).getAmount();
+        }
+    }
+
+    public BackLay getDirection(double price) {
+        synchronized (runner) {
+            return getPrice(price).getDirection();
+        }
+    }
+
+    public double getMatched(double price) {
+        synchronized (runner) {
+            return getPrice(price).getMatched();
+        }
+    }
+
+    public double getTotalBSPBackersStakeVolume(double price) {
+        synchronized (runner) {
+            return getPrice(price).getTotalBSPBackersStakeVolume();
+        }
+    }
+
+    public double getTotalBSPLayLiability(double price) {
+        synchronized (runner) {
+            return getPrice(price).getTotalBSPLayLiability();
+        }
+    }
+
+    public void setBack(double price, double back) {
+        synchronized (runner) {
+            RunnerPrice rp = getPrice(price);
+            if (rp.setBack(back)) {
+                if (!backIndices.contains(new Integer(rp.index))) {
+                    for (int i = 0; i < backIndices.size(); i++) {
+                        if (rp.index > backIndices.get(i)) {
+                            backIndices.add(i, new Integer(rp.index));
+                            return;
+                        }
+                    }
+                    backIndices.add(new Integer(rp.index));
+                }
+                for (int i = rp.index - 1; i >= 0; i--) {
+                    if (!prices[i].setDirection(BackLay.BACK)) break;
+                }
+            }
+            else {
+                backIndices.remove(new Integer(rp.index));
+            }
+        }
+    }
+
+    public void setLay(double price, double lay) {
+        synchronized (runner) {
+            RunnerPrice rp = getPrice(price);
+            LOG.debug("(price, lay): (" + price + ", " + lay + ")");
+            if (rp.setLay(lay)) {
+                if (!layIndices.contains(new Integer(rp.index))) {
+                    for (int i = 0; i < layIndices.size(); i++) {
+                        if (rp.index < layIndices.get(i)) {
+                            layIndices.add(i, new Integer(rp.index));
+                            return;
+                        }
+                    }
+                    layIndices.add(new Integer(rp.index));
+                }
+                for (int i = rp.index + 1; i < prices.length; i++) {
+                    if (!prices[i].setDirection(BackLay.LAY)) break;
+                }
+            }
+            else {
+                layIndices.remove(new Integer(rp.index));
+            }
+        }
+    }
+
+    public void emulate(PlaceBets p) {
+        double toSet = getAmount(p.getPrice()) - p.getSize();
+        if (toSet < 0.015) toSet = 0d;
+        if (p.getBetType() == BetTypeEnum.L)
+            setLay(p.getPrice(), toSet);
+        else
+            setBack(p.getPrice(), toSet);
+    }
+
+    public int getSize() {
+        return prices.length;
+    }
+
+    public RunnerPrice get(int index) {
+        return prices[index];
+    }
+
+    public void setMatched(double price, double matched) {
+        synchronized (runner) {
+            getPrice(price).setMatched(matched);
+        }
+    }
+
+    public void setTotalBSPBackersStakeVolume(double price,
+            double totalBSPBackersStakeVolume) {
+        synchronized (runner) {
+            getPrice(price).setTotalBSPBackersStakeVolume(
+                    totalBSPBackersStakeVolume);
+        }
+    }
+
+    public void setTotalBSPLayLiability(double price,
+            double totalBSPLayLiability) {
+        synchronized (runner) {
+            getPrice(price).setTotalBSPLayLiability(totalBSPLayLiability);
+        }
+    }
+
+    public RunnerPrice getPrice(double price) {
+        synchronized (runner) {
+            return prices[RunnerPrice.getIndex(price)];
+        }
+    }
+
+    public RunnerPrice getLayPrice(int index) {
+        synchronized (runner) {
+            LOG.debug("layIndices.size(): " + layIndices.size());
+            if (layIndices.size() > index)
+                return prices[layIndices.get(index)];
+            else
+                return null;
+        }
+    }
+
+    public RunnerPrice getBackPrice(int index) {
+        synchronized (runner) {
+            if (backIndices.size() > index)
+                return prices[backIndices.get(index)];
+            else
+                return null;
+        }
+    }
+
+}

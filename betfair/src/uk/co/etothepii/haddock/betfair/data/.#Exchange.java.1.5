@@ -1,0 +1,262 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package uk.co.etothepii.haddock.betfair.data;
+
+import com.betfair.publicapi.types.exchange.v5.GetMarketProfitAndLossResp;
+import com.betfair.publicapi.types.exchange.v5.PlaceBets;
+import com.betfair.publicapi.types.exchange.v5.ProfitAndLoss;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.TreeMap;
+import org.apache.log4j.Logger;
+import uk.co.etothepii.haddock.betfair.data.event.ExchangeChangeListener;
+import uk.co.etothepii.haddock.betfair.data.event.InPlayDelayChangeEvent;
+import uk.co.etothepii.haddock.betfair.data.event.RemovedRunnerAddedEvent;
+import uk.co.etothepii.haddock.betfair.data.event.RunnerRemovedEvent;
+import uk.co.etothepii.util.Changes;
+
+/**
+ *
+ * @author James Robinson for and on behalf of Etothepii Ltd
+ */
+public class Exchange {
+
+    private static final Logger LOG = Logger.getLogger(Exchange.class);
+
+    public final int marketId;
+    private int inPlayDelay;
+    private final ArrayList<Runner> runners;
+    private final ArrayList<RemovedRunner> removedRunners;
+    private final ArrayList<ExchangeChangeListener> exchangeChangeListeners;
+    public final Object sync = new Object();
+    private TreeMap<Integer, Runner> runnerMap;
+
+    private Exchange(int marketId) {
+        this(marketId, 0, new ArrayList<Runner>(),
+                new ArrayList<RemovedRunner>());
+    }
+
+    private Exchange(int marketId, int inPlayDelay, ArrayList<Runner> runners,
+            ArrayList<RemovedRunner> removedRunners) {
+        this.marketId = marketId;
+        this.inPlayDelay = inPlayDelay;
+        this.runners = runners;
+        this.removedRunners = removedRunners;
+        this.runnerMap = new TreeMap<Integer, Runner>();
+        for (Runner r: runners) {
+            runnerMap.put(r.selectionId, r);
+        }
+        exchangeChangeListeners = new ArrayList<ExchangeChangeListener>();
+        Collections.sort(runners, new Comparator<Runner>() {
+            public int compare(Runner o1, Runner o2) {
+                return o1.getOrderIndex() - o2.getOrderIndex();
+            }
+
+        });
+
+    }
+
+    public void setInPlayDelay(int inPlayDelay) {
+        if (Changes.different(this.inPlayDelay, inPlayDelay)) {
+            int oldVal = this.inPlayDelay;
+            int newVal = inPlayDelay;
+            this.inPlayDelay = inPlayDelay;
+            fireInPlayDelayChanged(
+                    new InPlayDelayChangeEvent(this, oldVal, newVal));
+        }
+    }
+
+    public int getInPlayDelay() {
+        return inPlayDelay;
+    }
+
+    public void removeRunner(Runner runner) {
+        if (runners.contains(runner)) {
+            if (runners.remove(runner)) {
+                fireRunnerRemoved(new RunnerRemovedEvent(this, runner));
+            }
+        }
+    }
+
+    public void addRemovedRunner(RemovedRunner removedRunner) {
+        if (!removedRunners.contains(removedRunner)) {
+            if (removedRunners.add(removedRunner)) {
+                fireRemovedRunnerAdded(
+                        new RemovedRunnerAddedEvent(this, removedRunner));
+            }
+        }
+    }
+
+    public void addExchangeChangeListener(
+            ExchangeChangeListener l) {
+        synchronized (exchangeChangeListeners) {
+            exchangeChangeListeners.add(l);
+        }
+    }
+
+    public void removeExchangeChangeListener(
+            ExchangeChangeListener l) {
+        synchronized (exchangeChangeListeners) {
+            exchangeChangeListeners.remove(l);
+        }
+    }
+
+    public void fireInPlayDelayChanged(final InPlayDelayChangeEvent e) {
+        synchronized (exchangeChangeListeners) {
+            for (final ExchangeChangeListener l : exchangeChangeListeners) {
+                new Thread(new Runnable() {
+                    public void run() {
+                        l.inPlayDelayChanged(e);
+                    }
+                }).start();
+            }
+        }
+    }
+
+    public void fireRunnerRemoved(final RunnerRemovedEvent e) {
+        synchronized (exchangeChangeListeners) {
+            for (final ExchangeChangeListener l : exchangeChangeListeners) {
+                new Thread(new Runnable() {
+                    public void run() {
+                        l.runnerRemoved(e);
+                    }
+                }).start();
+            }
+        }
+    }
+
+    public void fireRemovedRunnerAdded(final RemovedRunnerAddedEvent e) {
+        synchronized (exchangeChangeListeners) {
+            for (final ExchangeChangeListener l : exchangeChangeListeners) {
+                new Thread(new Runnable() {
+                    public void run() {
+                        l.removedRunnerAdded(e);
+                    }
+                }).start();
+            }
+        }
+    }
+
+    public void updateVolumes(String raw) {
+        LOG.debug("updateVolumes: " + raw);
+        if (raw == null) return;
+        String[] parts = raw.split("(?<!\\\\):");
+        ArrayList<Runner> copy = new ArrayList<Runner>(runners);
+        for (int i = 1; i < parts.length; i++) {
+            int selectionId = Runner.getSelectionId(parts[i]);
+            for (int j = 0; j < copy.size(); j++) {
+                Runner r = copy.get(j);
+                if (r.selectionId == selectionId) {
+                    r.updateVolumes(parts[i]);
+                    copy.remove(j);
+                    break;
+                }
+            }
+        }
+    }
+
+    public void updatePrices(String raw) {
+        synchronized (sync) {
+            if (raw == null) return;
+            String[] parts = raw.split(":");
+            String[] header = parts[0].split("~");
+            int newMarketId = Integer.parseInt(header[0]);
+            if (marketId != newMarketId) return;
+            int newInPlayDelay = Integer.parseInt(header[1]);
+            setInPlayDelay(newInPlayDelay);
+            if (header.length > 2) {
+                String[] split = header[2].split(";");
+                for (int i = 0; i < split.length; i++)
+                    addRemovedRunner(RemovedRunner.process(split[i]));
+            }
+            ArrayList<Runner> copy = new ArrayList<Runner>(runners);
+            for (int i = 1; i < parts.length; i++) {
+                int selectionId = Runner.getSelectionId(parts[i]);
+                for (int j = 0; j < copy.size(); j++) {
+                    Runner r = copy.get(j);
+                    if (r.selectionId == selectionId) {
+                        r.updatePrices(parts[i]);
+                        copy.remove(j);
+                        break;
+                    }
+                }
+            }
+            for (int i = 0; i < copy.size(); i++) {
+                removeRunner(copy.get(i));
+            }
+        }
+    }
+
+    public void updateProfitAndLoss(GetMarketProfitAndLossResp
+            getMarketProfitAndLossResp) {
+        ArrayList<Runner> copy = new ArrayList<Runner>(runners);
+        for (ProfitAndLoss profitAndLoss :
+                getMarketProfitAndLossResp.getAnnotations().getProfitAndLoss()) {
+            int selectionId = profitAndLoss.getSelectionId();
+            for (int j = 0; j < copy.size(); j++) {
+                Runner r = copy.get(j);
+                if (r.selectionId == selectionId) {
+                    r.updateProfitAndLoss(profitAndLoss);
+                    if (r.getName() == null)
+                        r.setName(profitAndLoss.getSelectionName());
+                    copy.remove(j);
+                    break;
+                }
+            }
+        }
+    }
+
+    public void emulate(PlaceBets p) {
+        synchronized (sync) {
+            for(Runner r : runners) {
+                if (p.getSelectionId() == r.selectionId) {
+                    r.emulate(p);
+                    return;
+                }
+            }
+        }
+    }
+
+    public static Exchange process(String raw) {
+        if (raw == null) return new Exchange(0);
+        String[] parts = raw.split(":");
+        String[] header = parts[0].split("~");
+        ArrayList<Runner> runners = new ArrayList<Runner>(parts.length - 1);
+        ArrayList<RemovedRunner> removedRunners;
+        if (header.length > 2) {
+            String[] split = header[2].split(";");
+            removedRunners = new ArrayList<RemovedRunner>(split.length);
+            for (int i = 0; i < split.length; i++)
+                removedRunners.add(RemovedRunner.process(split[i]));
+        }
+        else
+            removedRunners = new ArrayList<RemovedRunner>();
+        int marketId = Integer.parseInt(header[0]);
+        int inPlayDelay = Integer.parseInt(header[1]);
+        LOG.debug("parts.length: " + parts.length);
+        for (int i = 1; i < parts.length; i++) {
+            Runner runner = Runner.process(parts[i]);
+            LOG.debug("runner.getLastPriceMatched(): " +
+                    runner.getLastPriceMatched());
+            runners.add(runner);
+        }
+        return new Exchange(marketId, inPlayDelay, runners, removedRunners);
+    }
+
+    public ArrayList<RemovedRunner> getRemovedRunners() {
+        return removedRunners;
+    }
+
+    public ArrayList<Runner> getRunners() {
+        return runners;
+    }
+
+    public Runner getRunner(int selectionId) {
+        return runnerMap.get(selectionId);
+    }
+
+}

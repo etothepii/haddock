@@ -1,0 +1,2091 @@
+
+    
+    <!DOCTYPE html>
+<!--[if IE 8]> <html class="ie8" lang="en-GB"><![endif]--><!--[if IE 7]> <html class="ie7" lang="en-GB"><![endif]--><!--[if lt IE 7]> <html class="ie6" lang="en-GB"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+    <html lang="en-GB">
+    <!--<![endif]-->
+        <head>
+    <meta charset="utf-8">
+        <meta name="description" content="Timeform offers form, analysis, ratings and tips for horseracing in Britain, Ireland, North America and Australia. Timeform ratings are widely accepted as the definitive independent guide to a horse's ability.">
+        <meta name="keywords" content="Timeform,Horseracing,Betfair,Ratings,Tips,Analysis">
+    <title>     Timeform
+</title>
+    <link rel="shortcut icon" href="http://tm1.cdnbf.net/favicon_86_.ico"/>
+    <link rel="home" href="/" title="Home" />
+
+    <script>
+        asyncLoader = [];
+            asyncLoader.push("http://tm1.cdnbf.net/resources/groups/yui-core/all_86_.js");
+            asyncLoader.push("http://tm1.cdnbf.net/resources/groups/core/all_86_.js");
+            asyncLoader.push("http://tm1.cdnbf.net/resources/bundles/banner_calendar_expandable_daypage_daypageheader_daypagenavigation_footer_header_instantsearch-ebs_miniliveresults_ministartingsoon_navigation-bar_transport-plugin-push_transport-plugin-websocket_transport-push_transport-service/all_86_.js");
+        (function () {
+            var concurrentLimit = 4,
+                inProgressDownloads = 0,
+                seedScriptDownloaded = false,
+                downloadedCount = 0,
+                numberOfScripts = asyncLoader.length;
+
+            function loadNextAsync() {
+                var filename = asyncLoader.shift(),
+                    script = document.createElement('script'),
+                    js_init = function() {
+                        if (asyncLoader.length > 0) {
+                            loadNextAsync();
+                        } else if (downloadedCount === numberOfScripts) {
+    window.betfair = window.betfair || {};
+    window.betfair.platformStartingTS = new Date().getTime();
+
+    YUI({
+        'bootstrap': false,
+        'useBrowserConsole': true,
+        'logInclude': {
+        },
+        'fetchCSS': false,
+        'throwFail': false,
+        'lang': 'en-GB'
+    }).use('*', function(Y) {
+        // TODO: Get a robust way of doing this
+        // i.e. this value should be passed by mantis as part of config
+        
+        document.domain = 'betfair.com';
+
+        Y.BF.Platform.platformapi.preCreate();
+
+        Y.on("domready", function () {
+            if (!Y.Object.hasKey(Y.QueryString.parse(window.location.search.substring(1)), 'doNotStartJSPlatform')) {
+                Y.bfplatform = new Y.BF.Platform.platformapi({
+                    "config": platformConfig
+                });
+                Y.log(window.Y = Y);
+            }
+
+        });
+    });
+                        }
+                    };
+
+                function scriptDownloaded (script) {
+                    if (!seedScriptDownloaded) {
+                        seedScriptDownloaded = true;
+                    }
+                    script.onreadystatechange = null;
+                    script.onload = null;
+                    inProgressDownloads--;
+                    downloadedCount++;
+                    js_init();
+                }
+                script.onreadystatechange = function () {
+                    if (this.readyState == 'complete' || this.readyState == "loaded") {
+                        scriptDownloaded(script);
+                    }
+                };
+                script.onload = function() {
+                    scriptDownloaded(script);
+                };
+                script.setAttribute('charset', 'utf-8');
+                script.src = filename;
+                inProgressDownloads++;
+                if ((inProgressDownloads < concurrentLimit) && seedScriptDownloaded) {
+                    js_init();
+                }
+                document.getElementsByTagName('head')[0].appendChild(script);
+            };
+            loadNextAsync();
+        }());
+    </script>
+            <link href="http://tm2.cdnbf.net/resources/bundles/yui_platformapi_moduleapi_module_banner_calendar_daypage_daypageheader_daypagenavigation_footer_header_instantsearch-ebs_miniliveresults_ministartingsoon_navigation-bar/all_86_.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript">
+        (function() {
+            var docEl = document.documentElement,
+                oldClass = docEl.className,
+                dynClass = 'yui3-js-enabled',
+                dynClass = (oldClass.length > 0) ? ' ' + dynClass : dynClass;
+
+            docEl.className = oldClass + dynClass;
+        })();
+    </script>
+        </head>
+        <body class="layout-middle_content_right_menu">
+
+    <div id="grid-container" class="market-page flexible-grid ">
+        <!--[if (lt IE 9)]><!-->
+        <script type="text/javascript">
+            if(document.documentElement.clientWidth < 1232)
+                document.getElementById('grid-container').className += " viewportSizeNarrow";
+            else
+                document.getElementById('grid-container').className += " viewportSizeWide";
+        </script>
+        <!--<![endif]-->
+        <div id="header" class="clearfix">
+            <div class="h5-header dark" role="banner">
+
+
+<div id="mod-header-657933-container" class="mod">
+
+
+
+
+
+<div id="mod-header-657933" class="mod-header mod-header-header mod-header mod-header-header i13n">
+
+
+<a href="/" class="home i13n-sec-header i13n-ltxt-timeform">
+    <img src="/modules/header/images/logo.png" alt="Timeform Homepage"/>
+</a>
+
+
+
+<div id="mod-instantsearch-ebs-657953-container" class="mod">
+
+
+
+
+
+<div id="mod-instantsearch-ebs-657953" class="mod-instantsearch-ebs mod-instantsearch-ebs-instantsearch-ebs">
+
+        <div class="wrapper empty search-container">
+            <form method="get" action="/search">
+                <input type="text" class="input" name="q" value="" autocomplete="off" />
+                <img src="/page/images/input-loader.gif" alt="loading" class="input-spinner invisible">
+                <input type="submit" class="submit-search" value=""/>
+            </form>
+            <div class="dropdown-container invisible">
+            </div>
+        </div>
+
+</div>
+</div>
+
+<div id="combobox">
+    <div class="country styled-select">
+        <form autocomplete="off" id="changeLocaleForm" action="/changeLocale"
+              method="POST" style="display: none">
+            <input type="text" id="locale" class="input" name="language" value=""/>
+            <input type="text" id="region" class="input" name="region" value=""/>
+        </form>
+        <select class="locale-options">
+            <option value="1_NA"  >US&amp;CAN</option>
+            <option value="1_en" selected="selected" >GB&amp;IRE</option>
+            <option value="1_AUS_NZL"  >AUS&amp;NZ</option>
+        </select>
+    </div>
+
+
+    <div class="gmt styled-select">
+        <form action="#" method="post">
+            <select class="gmt-options">
+    <option value="HST"  title="North America Hawaii HST" data-timezone="GMT-10:00" >
+        North America Hawaii HST (GMT-10:00)
+    </option>
+    <option value="US/Alaska"  title="North America Alaska AKST" data-timezone="GMT-09:00" >
+        North America Alaska AKST (GMT-09:00)
+    </option>
+    <option value="PST8PDT"  title="North America Pacific PST" data-timezone="GMT-08:00" >
+        North America Pacific PST (GMT-08:00)
+    </option>
+    <option value="America/Phoenix"  title="North America Arizona AST" data-timezone="GMT-07:00" >
+        North America Arizona AST (GMT-07:00)
+    </option>
+    <option value="US/Mountain"  title="North America Mountain MST" data-timezone="GMT-07:00" >
+        North America Mountain MST (GMT-07:00)
+    </option>
+    <option value="America/Costa_Rica"  title="Central America Costa Rica SJMT" data-timezone="GMT-06:00" >
+        Central America Costa Rica SJMT (GMT-06:00)
+    </option>
+    <option value="CST6CDT"  title="North America Central CST" data-timezone="GMT-06:00" >
+        North America Central CST (GMT-06:00)
+    </option>
+    <option value="Jamaica"  title="Jamaica KMT" data-timezone="GMT-05:00" >
+        Jamaica KMT (GMT-05:00)
+    </option>
+    <option value="America/Indiana/Indianapolis"  title="North America Indiana East IEST" data-timezone="GMT-05:00" >
+        North America Indiana East IEST (GMT-05:00)
+    </option>
+    <option value="EST"  title="North America Eastern EST" data-timezone="GMT-05:00" >
+        North America Eastern EST (GMT-05:00)
+    </option>
+    <option value="Brazil/West"  title="Brazil West AMT" data-timezone="GMT-04:00" >
+        Brazil West AMT (GMT-04:00)
+    </option>
+    <option value="America/Blanc-Sablon"  title="Atlantic Time AST" data-timezone="GMT-04:00" >
+        Atlantic Time AST (GMT-04:00)
+    </option>
+    <option value="Canada/Newfoundland"  title="Newfoundland Time NDT" data-timezone="GMT-03:30" >
+        Newfoundland Time NDT (GMT-03:30)
+    </option>
+    <option value="America/Santiago"  title="Chile Santiago SMT" data-timezone="GMT-03:00" >
+        Chile Santiago SMT (GMT-03:00)
+    </option>
+    <option value="Brazil/East"  title="Brazil Time BRT" data-timezone="GMT-02:00" >
+        Brazil Time BRT (GMT-02:00)
+    </option>
+    <option value="GMT"  title="Greenwich Mean GMT" data-timezone="GMT+00:00" >
+        Greenwich Mean GMT (GMT+00:00)
+    </option>
+    <option value="Europe/London" selected="selected"  title="UK Time UKT" data-timezone="GMT+00:00" >
+            GMT+00:00
+    </option>
+    <option value="CET"  title="Central European CET" data-timezone="GMT+01:00" >
+        Central European CET (GMT+01:00)
+    </option>
+    <option value="Africa/Johannesburg"  title="South African RSA" data-timezone="GMT+02:00" >
+        South African RSA (GMT+02:00)
+    </option>
+    <option value="EET"  title="Eastern European EET" data-timezone="GMT+02:00" >
+        Eastern European EET (GMT+02:00)
+    </option>
+    <option value="Asia/Dubai"  title="United Arab Emirates UAE" data-timezone="GMT+04:00" >
+        United Arab Emirates UAE (GMT+04:00)
+    </option>
+    <option value="Europe/Moscow"  title="Moscow MSK" data-timezone="GMT+04:00" >
+        Moscow MSK (GMT+04:00)
+    </option>
+    <option value="Asia/Karachi"  title="Pakistan Time PKT" data-timezone="GMT+05:00" >
+        Pakistan Time PKT (GMT+05:00)
+    </option>
+    <option value="Asia/Calcutta"  title="Indian Time INT" data-timezone="GMT+05:30" >
+        Indian Time INT (GMT+05:30)
+    </option>
+    <option value="Asia/Bangkok"  title="Bangkok THAI" data-timezone="GMT+07:00" >
+        Bangkok THAI (GMT+07:00)
+    </option>
+    <option value="Australia/Perth"  title="Australian Western AWST" data-timezone="GMT+08:00" >
+        Australian Western AWST (GMT+08:00)
+    </option>
+    <option value="Asia/Hong_Kong"  title="Hong Kong HK" data-timezone="GMT+08:00" >
+        Hong Kong HK (GMT+08:00)
+    </option>
+    <option value="Japan"  title="Japan JPT" data-timezone="GMT+09:00" >
+        Japan JPT (GMT+09:00)
+    </option>
+    <option value="Australia/North"  title="Australian Northern Territories ANST" data-timezone="GMT+09:30" >
+        Australian Northern Territories ANST (GMT+09:30)
+    </option>
+    <option value="Australia/Queensland"  title="Australian Queensland AQST" data-timezone="GMT+10:00" >
+        Australian Queensland AQST (GMT+10:00)
+    </option>
+    <option value="Australia/South"  title="Australian Central ACST" data-timezone="GMT+10:30" >
+        Australian Central ACST (GMT+10:30)
+    </option>
+    <option value="Australia/ACT"  title="Australian Eastern AEST" data-timezone="GMT+11:00" >
+        Australian Eastern AEST (GMT+11:00)
+    </option>
+    <option value="Pacific/Auckland"  title="New Zealand NZT" data-timezone="GMT+13:00" >
+        New Zealand NZT (GMT+13:00)
+    </option>
+            </select>
+        </form>
+    </div>
+
+</div>
+
+
+</div>
+</div>
+            </div>
+            <div class="h5-header white" role="banner">
+
+
+<div id="mod-navigation-bar-657942-container" class="mod">
+
+
+
+
+
+<div id="mod-navigation-bar-657942" class="mod-navigation-bar mod-navigation-bar-navigation-bar mod-navigation-bar mod-navigation-bar-navigation-bar i13n">
+<ul class="navigation-bar clearfix">
+    <li class="item  i13n-sec-header i13n-ltxt-home">
+        <a class="home" href="/" rel="home">Home</a>
+    </li>
+    <li class="item selected i13n-sec-header i13n-ltxt-cards">
+        <a class="daypage" href="/daypage">Cards &amp; Results</a>
+    </li>
+    <li class="item">
+        <a href="http://betting.betfair.com/horse-racing" target="_blank">News</a>
+    </li>
+</ul>
+<div class="item radio">
+        <a href="http://radio.timeform.com/" class="timeform-radio i13n-sec-header i13n-ltxt-radio" data-popup="height:580px,width:620px,scrollbars:0" ><span></span>Listen to Radio</a>
+</div>
+
+
+</div>
+</div>
+            </div>
+        </div>
+        <div id="main-wrapper" class="main-wrapper clearfix">
+            <div id="market-main" role="main" class="market-main">
+
+
+<div id="mod-daypagenavigation-657935-container" class="mod">
+
+
+
+
+
+<div id="mod-daypagenavigation-657935" class="mod-daypagenavigation mod-daypagenavigation-daypagenavigation mod-daypagenavigation mod-daypagenavigation-daypagenavigation i13n">
+
+<div class="container">
+    <ul class="daypage-navigation-controls">
+
+        <li class="view-dates">
+            <div class="menu-link link-calendar">
+                <a href="#" class="i13n-ltxt-calendar">
+                    <span class="calendar-icon"></span>
+                </a>
+            </div>
+            <div class="calendar-module" style="display: none; opacity: 0">
+                
+
+
+<div id="mod-calendar-657954-container" class="mod">
+
+
+
+
+
+<div id="mod-calendar-657954" class="mod-calendar mod-calendar-calendar">
+<div class="calendar"></div>
+
+</div>
+</div>
+            </div>
+        </li>
+            <li class="view-days "><a href="/daypage?date=20121206">Yesterday</a></li>
+            <li class="view-days "><a href="/daypage?date=20121207">Today</a></li>
+            <li class="view-days "><a href="/daypage?date=20121208">Tomorrow</a></li>
+            <li class="view-days "><a href="/daypage?date=20121209">Sun 09</a></li>
+            <li class="view-days "><a href="/daypage?date=20121210">Mon 10</a></li>
+            <li class="view-days "><a href="/daypage?date=20121211">Tue 11</a></li>
+
+    </ul>
+</div>
+<div class="clearer"></div>
+<div class="overlay"></div>
+
+
+</div>
+</div>
+
+
+<div id="mod-daypageheader-657937-container" class="mod">
+
+
+
+
+
+<div id="mod-daypageheader-657937" class="mod-daypageheader mod-daypageheader-daypageheader mod-daypageheader mod-daypageheader-daypageheader i13n">
+<div class="page-header">
+    <h2 class="master-header">
+        Cards &amp; Results    </h2>
+    <div class="listen title-header">
+        <a href="http://radio.timeform.com/" data-popup="width:580,height:620" class=" i13n-sec-cards i13n-ltxt-radio i13n-tab-TODO-TAG-TAB listen-message"><span class="listen-icon"></span> Listen to a Racing Preview</a>
+    </div>
+</div>
+<div class="day-date">
+    <div class="day-date-text">
+        <div class="heading-text">
+            <a href="/daypage?date=20120906"
+               title="Previous" class="link-previous">Previous</a>
+            <abbr class="date dtstart"
+                  title="2012-09-07 00:00">Fri 07 Sep 2012</abbr>
+            <a href="/daypage?date=20120908"
+               title="Next" class="link-next">Next</a>
+        </div>
+    </div>
+    <ul class="legend-boxes">
+        <li class="full-results">
+            <span class="color">&nbsp;</span>
+            <span class="label">Full Result</span>
+        </li>
+        <li class="quick-results">
+            <span class="color">&nbsp;</span>
+            <span class="label">Quick Result</span>
+        </li>
+        <li class="in-play">
+            <span class="color">&nbsp;</span>
+            <span class="label">In-Play</span>
+        </li>
+    </ul>
+
+</div>
+
+</div>
+</div>
+
+
+<div id="mod-daypage-657938-container" class="mod">
+
+
+
+
+
+<div id="mod-daypage-657938" class="mod-daypage mod-daypage-daypage mod-daypage mod-daypage-daypage i13n">
+
+<div class="container">
+
+
+
+
+
+        <div class="module-expandable-wrapper wrapper" data-location="RACING_COUNTRY_GB_IE">
+<div class="secondary-module-header open">
+    <h2 class="sub-heading-text">
+        <a href="#toggle-content" class="i13n-sec-country i13n-ltxt-MoreLess i13n-tab-TODO-TAG-TAB">
+        GB & Ireland<span class="races-left"></span><span class="arrow"></span>
+        </a>
+    </h2>
+</div>
+<div class="secondary-module-content" >
+    <div class="inner-daypage">
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=1.22&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Haydock Park
+        </a>
+                 | GOOD to FIRM
+            </p>
+            <ul>
+                    <li class="full" title="5f Handicap | 10 runners">
+        <a href="/raceresult?raceId=1.22.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        14:00
+        </a>
+                    </li>
+                    <li class="full" title="5f Handicap | 9 runners">
+        <a href="/raceresult?raceId=1.22.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        14:30
+        </a>
+                    </li>
+                    <li class="full" title="6f Maiden Stakes | 10 runners">
+        <a href="/raceresult?raceId=1.22.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        15:05
+        </a>
+                    </li>
+                    <li class="full" title="6f Handicap | 16 runners">
+        <a href="/raceresult?raceId=1.22.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        15:35
+        </a>
+                    </li>
+                    <li class="full" title="6f Handicap | 13 runners">
+        <a href="/raceresult?raceId=1.22.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        16:10
+        </a>
+                    </li>
+                    <li class="full" title="1m2f 95yds Handicap | 10 runners">
+        <a href="/raceresult?raceId=1.22.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        16:45
+        </a>
+                    </li>
+                    <li class="full" title="7f Handicap | 12 runners">
+        <a href="/raceresult?raceId=1.22.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        17:15
+        </a>
+                    </li>
+                    <li class="full" title="1m6f Handicap | 9 runners">
+        <a href="/raceresult?raceId=1.22.1120907.8" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        17:45
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=1.6&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Brighton
+        </a>
+                 | GOOD
+            </p>
+            <ul>
+                    <li class="full" title="1m3f 196yds Handicap | 12 runners">
+        <a href="/raceresult?raceId=1.6.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        14:10
+        </a>
+                    </li>
+                    <li class="full" title="1m1f 209yds Handicap | 12 runners">
+        <a href="/raceresult?raceId=1.6.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        14:40
+        </a>
+                    </li>
+                    <li class="full" title="7f 214yds Handicap | 13 runners">
+        <a href="/raceresult?raceId=1.6.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        15:15
+        </a>
+                    </li>
+                    <li class="full" title="6f 209yds Maiden Stakes | 7 runners">
+        <a href="/raceresult?raceId=1.6.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        15:45
+        </a>
+                    </li>
+                    <li class="full" title="6f 209yds Handicap | 9 runners">
+        <a href="/raceresult?raceId=1.6.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        16:20
+        </a>
+                    </li>
+                    <li class="full" title="5f 213yds Handicap | 10 runners">
+        <a href="/raceresult?raceId=1.6.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        16:55
+        </a>
+                    </li>
+                    <li class="full" title="5f 213yds Handicap | 12 runners">
+        <a href="/raceresult?raceId=1.6.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        17:25
+        </a>
+                    </li>
+                    <li class="full" title="7f 214yds Apprentice Handicap | 11 runners">
+        <a href="/raceresult?raceId=1.6.1120907.8" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        17:55
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=1.11&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Chepstow
+        </a>
+                 | GOOD
+            </p>
+            <ul>
+                    <li class="full" title="1m 14yds Maiden Stakes | 8 runners">
+        <a href="/raceresult?raceId=1.11.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        14:20
+        </a>
+                    </li>
+                    <li class="full" title="1m 14yds Handicap | 12 runners">
+        <a href="/raceresult?raceId=1.11.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        14:50
+        </a>
+                    </li>
+                    <li class="full" title="7f 16yds Handicap | 9 runners">
+        <a href="/raceresult?raceId=1.11.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        15:25
+        </a>
+                    </li>
+                    <li class="full" title="7f 16yds Handicap | 12 runners">
+        <a href="/raceresult?raceId=1.11.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        15:55
+        </a>
+                    </li>
+                    <li class="full" title="7f 16yds Apprentice Selling Stakes | 10 runners">
+        <a href="/raceresult?raceId=1.11.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        16:30
+        </a>
+                    </li>
+                    <li class="full" title="6f 16yds Handicap | 15 runners">
+        <a href="/raceresult?raceId=1.11.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        17:05
+        </a>
+                    </li>
+                    <li class="full" title="5f 16yds Handicap | 10 runners">
+        <a href="/raceresult?raceId=1.11.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        17:35
+        </a>
+                    </li>
+                    <li class="full" title="1m4f 23yds Handicap | 12 runners">
+        <a href="/raceresult?raceId=1.11.1120907.8" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        18:05
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=1.27&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Kempton Park
+        </a>
+                 | ALL-WEATHER  FAST
+            </p>
+            <ul>
+                    <li class="full" title="1m Handicap | 7 runners">
+        <a href="/raceresult?raceId=1.27.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        18:20
+        </a>
+                    </li>
+                    <li class="full" title="1m Maiden Stakes | 12 runners">
+        <a href="/raceresult?raceId=1.27.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        18:50
+        </a>
+                    </li>
+                    <li class="full" title="6f Maiden Stakes | 11 runners">
+        <a href="/raceresult?raceId=1.27.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        19:20
+        </a>
+                    </li>
+                    <li class="full" title="6f Handicap | 12 runners">
+        <a href="/raceresult?raceId=1.27.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        19:50
+        </a>
+                    </li>
+                    <li class="full" title="7f Conditions Stakes | 5 runners">
+        <a href="/raceresult?raceId=1.27.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        20:20
+        </a>
+                    </li>
+                    <li class="full" title="1m3f Handicap | 12 runners">
+        <a href="/raceresult?raceId=1.27.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        20:50
+        </a>
+                    </li>
+                    <li class="full" title="2m Handicap | 7 runners">
+        <a href="/raceresult?raceId=1.27.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        21:20
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=1.211&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Kilbeggan
+        </a>
+                 | GOOD
+            </p>
+            <ul>
+                    <li class="full" title="2m Maiden Hurdle | 14 runners">
+        <a href="/raceresult?raceId=1.211.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        16:40
+        </a>
+                    </li>
+                    <li class="full" title="2m3f Hurdle | 7 runners">
+        <a href="/raceresult?raceId=1.211.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        17:10
+        </a>
+                    </li>
+                    <li class="full" title="2m3f Handicap Hurdle | 13 runners">
+        <a href="/raceresult?raceId=1.211.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        17:40
+        </a>
+                    </li>
+                    <li class="full" title="3m Hurdle | 10 runners">
+        <a href="/raceresult?raceId=1.211.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        18:10
+        </a>
+                    </li>
+                    <li class="full" title="2m4f Beginners' Chase | 14 runners">
+        <a href="/raceresult?raceId=1.211.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        18:40
+        </a>
+                    </li>
+                    <li class="full" title="3m1f Handicap Chase | 14 runners">
+        <a href="/raceresult?raceId=1.211.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        19:10
+        </a>
+                    </li>
+                    <li class="full" title="2m3f National Hunt Flat | 16 runners">
+        <a href="/raceresult?raceId=1.211.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        19:40
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+    </div>
+</div>        </div>
+
+
+
+
+
+        <div class="module-expandable-wrapper wrapper" data-location="RACING_COUNTRY_US_CA">
+<div class="secondary-module-header open">
+    <h2 class="sub-heading-text">
+        <a href="#toggle-content" class="i13n-sec-country i13n-ltxt-MoreLess i13n-tab-TODO-TAG-TAB">
+        USA & Canada<span class="races-left"></span><span class="arrow"></span>
+        </a>
+    </h2>
+</div>
+<div class="secondary-module-content" >
+    <div class="inner-daypage">
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=2.93&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Charles Town Races & Slots
+        </a>
+                
+            </p>
+            <ul>
+                    <li class="full" title="4f 110yds Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.93.1120906.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:15 R1
+        </a>
+                    </li>
+                    <li class="full" title="1m 110yds Claiming Stakes | 8 runners">
+        <a href="/raceresult?raceId=2.93.1120906.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:46 R2
+        </a>
+                    </li>
+                    <li class="full" title="6f 110yds Maiden Claiming Stakes | 8 runners">
+        <a href="/raceresult?raceId=2.93.1120906.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        01:23 R3
+        </a>
+                    </li>
+                    <li class="full" title="6f 110yds Claiming Stakes | 9 runners">
+        <a href="/raceresult?raceId=2.93.1120906.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        01:51 R4
+        </a>
+                    </li>
+                    <li class="full" title="6f 110yds Maiden Claiming Stakes | 10 runners">
+        <a href="/raceresult?raceId=2.93.1120906.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        02:18 R5
+        </a>
+                    </li>
+                    <li class="full" title="4f 110yds Claiming Stakes | 8 runners">
+        <a href="/raceresult?raceId=2.93.1120906.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        02:44 R6
+        </a>
+                    </li>
+                    <li class="full" title="7f Maiden Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.93.1120906.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        03:10 R7
+        </a>
+                    </li>
+                    <li class="full" title="6f 110yds Conditions Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.93.1120906.8" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        03:37 R8
+        </a>
+                    </li>
+                    <li class="full" title="4f 110yds Claiming Stakes | 8 runners">
+        <a href="/raceresult?raceId=2.93.1120906.9" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        04:03 R9
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=2.384&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Remington Park
+        </a>
+                
+            </p>
+            <ul>
+                    <li class="full" title="1m Maiden | 9 runners">
+        <a href="/raceresult?raceId=2.384.1120906.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:30 R1
+        </a>
+                    </li>
+                    <li class="full" title="5f 110yds Conditions Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.384.1120906.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:58 R2
+        </a>
+                    </li>
+                    <li class="full" title="7f 110yds Claiming Stakes | 9 runners">
+        <a href="/raceresult?raceId=2.384.1120906.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        01:26 R3
+        </a>
+                    </li>
+                    <li class="full" title="5f 110yds Maiden | 11 runners">
+        <a href="/raceresult?raceId=2.384.1120906.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        01:54 R4
+        </a>
+                    </li>
+                    <li class="full" title="6f 110yds Maiden Claiming Stakes | 13 runners">
+        <a href="/raceresult?raceId=2.384.1120906.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        02:22 R5
+        </a>
+                    </li>
+                    <li class="full" title="5f Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.384.1120906.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        02:50 R6
+        </a>
+                    </li>
+                    <li class="full" title="6f 110yds Maiden Claiming Stakes | 14 runners">
+        <a href="/raceresult?raceId=2.384.1120906.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        03:18 R7
+        </a>
+                    </li>
+                    <li class="full" title="1m Claiming Stakes | 11 runners">
+        <a href="/raceresult?raceId=2.384.1120906.8" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        03:46 R8
+        </a>
+                    </li>
+                    <li class="full" title="6f 110yds Claiming Stakes | 11 runners">
+        <a href="/raceresult?raceId=2.384.1120906.9" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        04:14 R9
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=2.88&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Calder Race Course
+        </a>
+                
+            </p>
+            <ul>
+                    <li class="full" title="5f 110yds Maiden Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.88.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        17:30 R1
+        </a>
+                    </li>
+                    <li class="full" title="7f Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.88.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        17:55 R2
+        </a>
+                    </li>
+                    <li class="full" title="6f Claiming Stakes | 5 runners">
+        <a href="/raceresult?raceId=2.88.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        18:20 R3
+        </a>
+                    </li>
+                    <li class="full" title="1m Claiming Stakes | 4 runners">
+        <a href="/raceresult?raceId=2.88.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        18:46 R4
+        </a>
+                    </li>
+                    <li class="full" title="1m 70yds Conditions Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.88.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        19:11 R5
+        </a>
+                    </li>
+                    <li class="full" title="5f Maiden Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.88.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        19:37 R6
+        </a>
+                    </li>
+                    <li class="full" title="5f 110yds Maiden Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.88.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        20:03 R7
+        </a>
+                    </li>
+                    <li class="full" title="1m 110yds Claiming Stakes | 9 runners">
+        <a href="/raceresult?raceId=2.88.1120907.8" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        20:34 R8
+        </a>
+                    </li>
+                    <li class="full" title="5f 110yds Conditions Stakes | 4 runners">
+        <a href="/raceresult?raceId=2.88.1120907.9" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        21:03 R9
+        </a>
+                    </li>
+                    <li class="full" title="6f 110yds Conditions Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.88.1120907.10" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        21:28 R10
+        </a>
+                    </li>
+                    <li class="full" title="5f Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.88.1120907.11" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        21:57 R11
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=2.149&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Finger Lakes
+        </a>
+                
+            </p>
+            <ul>
+                    <li class="full" title="1m Maiden Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.149.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        17:35 R1
+        </a>
+                    </li>
+                    <li class="full" title="6f Maiden Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.149.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        18:02 R2
+        </a>
+                    </li>
+                    <li class="full" title="5f 110yds Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.149.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        18:29 R3
+        </a>
+                    </li>
+                    <li class="full" title="6f Claiming Stakes | 9 runners">
+        <a href="/raceresult?raceId=2.149.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        18:56 R4
+        </a>
+                    </li>
+                    <li class="full" title="6f Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.149.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        19:23 R5
+        </a>
+                    </li>
+                    <li class="full" title="6f Conditions Stakes | 8 runners">
+        <a href="/raceresult?raceId=2.149.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        19:50 R6
+        </a>
+                    </li>
+                    <li class="full" title="5f 110yds Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.149.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        20:17 R7
+        </a>
+                    </li>
+                    <li class="full" title="1m 70yds Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.149.1120907.8" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        20:44 R8
+        </a>
+                    </li>
+                    <li class="full" title="1m Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.149.1120907.9" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        21:11 R9
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=2.569&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Woodbine
+        </a>
+                
+            </p>
+            <ul>
+                    <li class="full" title="6f Maiden Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.569.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        18:05 R1
+        </a>
+                    </li>
+                    <li class="full" title="6f Maiden Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.569.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        18:35 R2
+        </a>
+                    </li>
+                    <li class="full" title="7f Maiden | 6 runners">
+        <a href="/raceresult?raceId=2.569.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        19:05 R3
+        </a>
+                    </li>
+                    <li class="full" title="7f Claiming Stakes | 8 runners">
+        <a href="/raceresult?raceId=2.569.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        19:35 R4
+        </a>
+                    </li>
+                    <li class="full" title="1m 110yds Maiden Claiming Stakes | 10 runners">
+        <a href="/raceresult?raceId=2.569.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        20:05 R5
+        </a>
+                    </li>
+                    <li class="full" title="1m 110yds Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.569.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        20:36 R6
+        </a>
+                    </li>
+                    <li class="full" title="1m 110yds Claiming Stakes | 12 runners">
+        <a href="/raceresult?raceId=2.569.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        21:07 R7
+        </a>
+                    </li>
+                    <li class="full" title="6f Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.569.1120907.8" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        21:37 R8
+        </a>
+                    </li>
+                    <li class="full" title="6f 110yds Maiden | 8 runners">
+        <a href="/raceresult?raceId=2.569.1120907.9" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        22:07 R9
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=2.254&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Laurel Park
+        </a>
+                
+            </p>
+            <ul>
+                    <li class="future" title="7f Maiden Claiming Stakes | 7 runners">
+        <a href="/racecard?raceId=2.254.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        18:10 R1
+        </a>
+                    </li>
+                    <li class="future" title="6f Claiming Stakes | 5 runners">
+        <a href="/racecard?raceId=2.254.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        18:40 R2
+        </a>
+                    </li>
+                    <li class="future" title="1m 110yds Claiming Stakes | 10 runners">
+        <a href="/racecard?raceId=2.254.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        19:10 R3
+        </a>
+                    </li>
+                    <li class="future" title="5f 110yds Maiden Claiming Stakes | 7 runners">
+        <a href="/racecard?raceId=2.254.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        19:38 R4
+        </a>
+                    </li>
+                    <li class="future" title="5f 110yds Conditions Stakes | 10 runners">
+        <a href="/racecard?raceId=2.254.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        20:07 R5
+        </a>
+                    </li>
+                    <li class="future" title="6f Claiming Stakes | 8 runners">
+        <a href="/racecard?raceId=2.254.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        20:37 R6
+        </a>
+                    </li>
+                    <li class="future" title="5f 110yds Claiming Stakes | 10 runners">
+        <a href="/racecard?raceId=2.254.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        21:07 R7
+        </a>
+                    </li>
+                    <li class="future" title="6f Maiden | 5 runners">
+        <a href="/racecard?raceId=2.254.1120907.8" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        21:37 R8
+        </a>
+                    </li>
+                    <li class="future" title="1m Claiming Stakes | 9 runners">
+        <a href="/racecard?raceId=2.254.1120907.9" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        22:07 R9
+        </a>
+                    </li>
+                    <li class="future" title="1m 110yds Maiden | 8 runners">
+        <a href="/racecard?raceId=2.254.1120907.10" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        22:37 R10
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=2.455&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Thistledown
+        </a>
+                
+            </p>
+            <ul>
+                    <li class="full" title="6f Maiden Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.455.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        18:50 R1
+        </a>
+                    </li>
+                    <li class="full" title="6f Claiming Stakes | 5 runners">
+        <a href="/raceresult?raceId=2.455.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        19:21 R2
+        </a>
+                    </li>
+                    <li class="full" title="1m 70yds Claiming Stakes | 5 runners">
+        <a href="/raceresult?raceId=2.455.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        19:52 R3
+        </a>
+                    </li>
+                    <li class="full" title="6f Claiming Stakes | 8 runners">
+        <a href="/raceresult?raceId=2.455.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        20:23 R4
+        </a>
+                    </li>
+                    <li class="full" title="5f Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.455.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        20:54 R5
+        </a>
+                    </li>
+                    <li class="full" title="6f Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.455.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        21:26 R6
+        </a>
+                    </li>
+                    <li class="full" title="6f Claiming Stakes | 9 runners">
+        <a href="/raceresult?raceId=2.455.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        21:58 R7
+        </a>
+                    </li>
+                    <li class="full" title="1m2f Conditions Stakes | 13 runners">
+        <a href="/raceresult?raceId=2.455.1120907.8" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        22:32 R8
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=2.232&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Louisiana Downs
+        </a>
+                
+            </p>
+            <ul>
+                    <li class="full" title="1m Maiden Claiming Stakes | 8 runners">
+        <a href="/raceresult?raceId=2.232.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        19:25 R1
+        </a>
+                    </li>
+                    <li class="full" title="6f 110yds Claiming Stakes | 8 runners">
+        <a href="/raceresult?raceId=2.232.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        19:52 R2
+        </a>
+                    </li>
+                    <li class="full" title="1m 70yds Maiden | 7 runners">
+        <a href="/raceresult?raceId=2.232.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        20:20 R3
+        </a>
+                    </li>
+                    <li class="full" title="1m 70yds Maiden Claiming Stakes | 8 runners">
+        <a href="/raceresult?raceId=2.232.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        20:50 R4
+        </a>
+                    </li>
+                    <li class="full" title="5f 110yds Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.232.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        21:20 R5
+        </a>
+                    </li>
+                    <li class="full" title="1m Claiming Stakes | 11 runners">
+        <a href="/raceresult?raceId=2.232.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        21:50 R6
+        </a>
+                    </li>
+                    <li class="full" title="7f Claiming Stakes | 8 runners">
+        <a href="/raceresult?raceId=2.232.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        22:20 R7
+        </a>
+                    </li>
+                    <li class="full" title="7f 110yds Conditions Stakes | 10 runners">
+        <a href="/raceresult?raceId=2.232.1120907.8" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        22:50 R8
+        </a>
+                    </li>
+                    <li class="full" title="7f Maiden Claiming Stakes | 8 runners">
+        <a href="/raceresult?raceId=2.232.1120907.9" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        23:20 R9
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=2.17&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Arlington Park
+        </a>
+                
+            </p>
+            <ul>
+                    <li class="full" title="6f Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.17.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        20:00 R1
+        </a>
+                    </li>
+                    <li class="full" title="5f 110yds Maiden | 6 runners">
+        <a href="/raceresult?raceId=2.17.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        20:27 R2
+        </a>
+                    </li>
+                    <li class="full" title="6f Maiden Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.17.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        20:55 R3
+        </a>
+                    </li>
+                    <li class="full" title="6f Maiden | 6 runners">
+        <a href="/raceresult?raceId=2.17.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        21:28 R4
+        </a>
+                    </li>
+                    <li class="full" title="6f Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.17.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        22:00 R5
+        </a>
+                    </li>
+                    <li class="full" title="6f Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.17.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        22:30 R6
+        </a>
+                    </li>
+                    <li class="full" title="1m 110yds Conditions Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.17.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        22:58 R7
+        </a>
+                    </li>
+                    <li class="full" title="5f 110yds Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.17.1120907.8" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        23:26 R8
+        </a>
+                    </li>
+                    <li class="full" title="5f 110yds Maiden Claiming Stakes | 9 runners">
+        <a href="/raceresult?raceId=2.17.1120907.9" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        23:54 R9
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=2.159&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Fairplex Park
+        </a>
+                
+            </p>
+            <ul>
+                    <li class="full" title="6f Conditions Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.159.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        21:00 R1
+        </a>
+                    </li>
+                    <li class="full" title="4f Maiden Claiming Stakes | 8 runners">
+        <a href="/raceresult?raceId=2.159.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        21:25 R2
+        </a>
+                    </li>
+                    <li class="full" title="1m 110yds Claiming Stakes | 5 runners">
+        <a href="/raceresult?raceId=2.159.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        21:50 R3
+        </a>
+                    </li>
+                    <li class="full" title="6f 110yds Maiden Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.159.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        22:15 R4
+        </a>
+                    </li>
+                    <li class="full" title="6f 110yds Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.159.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        22:40 R5
+        </a>
+                    </li>
+                    <li class="full" title="6f 110yds Maiden Claiming Stakes | 9 runners">
+        <a href="/raceresult?raceId=2.159.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        23:05 R6
+        </a>
+                    </li>
+                    <li class="full" title="6f 110yds Claiming Stakes | 9 runners">
+        <a href="/raceresult?raceId=2.159.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        23:30 R7
+        </a>
+                    </li>
+                    <li class="full" title="6f Maiden Claiming Stakes | 9 runners">
+        <a href="/raceresult?raceId=2.159.1120907.8" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        23:55 R8
+        </a>
+                    </li>
+                    <li class="full" title="6f 110yds Conditions Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.159.1120907.9" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:20 R9
+        </a>
+                    </li>
+                    <li class="full" title="1m1f Maiden Claiming Stakes | 10 runners">
+        <a href="/raceresult?raceId=2.159.1120907.10" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:45 R10
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=2.170&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Golden Gate Fields
+        </a>
+                
+            </p>
+            <ul>
+                    <li class="future" title="1m Claiming Stakes | 5 runners">
+        <a href="/racecard?raceId=2.170.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        21:15 R1
+        </a>
+                    </li>
+                    <li class="future" title="5f Claiming Stakes | 5 runners">
+        <a href="/racecard?raceId=2.170.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        21:45 R2
+        </a>
+                    </li>
+                    <li class="future" title="5f 110yds Maiden Claiming Stakes | 6 runners">
+        <a href="/racecard?raceId=2.170.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        22:15 R3
+        </a>
+                    </li>
+                    <li class="future" title="1m 110yds Maiden | 5 runners">
+        <a href="/racecard?raceId=2.170.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        22:45 R4
+        </a>
+                    </li>
+                    <li class="future" title="5f 110yds Claiming Stakes | 8 runners">
+        <a href="/racecard?raceId=2.170.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        23:15 R5
+        </a>
+                    </li>
+                    <li class="future" title="5f 110yds Claiming Stakes | 7 runners">
+        <a href="/racecard?raceId=2.170.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        23:45 R6
+        </a>
+                    </li>
+                    <li class="future" title="1m Claiming Stakes | 6 runners">
+        <a href="/racecard?raceId=2.170.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:15 R7
+        </a>
+                    </li>
+                    <li class="future" title="1m Claiming Stakes | 6 runners">
+        <a href="/racecard?raceId=2.170.1120907.8" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:45 R8
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=2.12&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Albuquerque
+        </a>
+                
+            </p>
+            <ul>
+                    <li class="full" title="1f 180yds Conditions Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.12.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        21:30 R1
+        </a>
+                    </li>
+                    <li class="full" title="1f 180yds Conditions Stakes | 8 runners">
+        <a href="/raceresult?raceId=2.12.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        21:53 R2
+        </a>
+                    </li>
+                    <li class="full" title="1f 180yds Conditions Stakes | 8 runners">
+        <a href="/raceresult?raceId=2.12.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        22:16 R3
+        </a>
+                    </li>
+                    <li class="full" title="1f 180yds Conditions Stakes | 9 runners">
+        <a href="/raceresult?raceId=2.12.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        22:39 R4
+        </a>
+                    </li>
+                    <li class="full" title="1f 180yds Conditions Stakes | 10 runners">
+        <a href="/raceresult?raceId=2.12.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        23:02 R5
+        </a>
+                    </li>
+                    <li class="full" title="1f 180yds Conditions Stakes | 10 runners">
+        <a href="/raceresult?raceId=2.12.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        23:25 R6
+        </a>
+                    </li>
+                    <li class="full" title="1f 180yds Conditions Stakes | 9 runners">
+        <a href="/raceresult?raceId=2.12.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        23:48 R7
+        </a>
+                    </li>
+                    <li class="full" title="5f 110yds Claiming Stakes | 9 runners">
+        <a href="/raceresult?raceId=2.12.1120907.8" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:11 R8
+        </a>
+                    </li>
+                    <li class="full" title="5f 110yds Claiming Stakes | 8 runners">
+        <a href="/raceresult?raceId=2.12.1120907.9" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:34 R9
+        </a>
+                    </li>
+                    <li class="full" title="1m Claiming Stakes | 8 runners">
+        <a href="/raceresult?raceId=2.12.1120907.10" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:57 R10
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=2.333&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Presque Isle Downs
+        </a>
+                
+            </p>
+            <ul>
+                    <li class="full" title="6f Claiming Stakes | 11 runners">
+        <a href="/raceresult?raceId=2.333.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        22:25 R1
+        </a>
+                    </li>
+                    <li class="full" title="5f 110yds Claiming Stakes | 11 runners">
+        <a href="/raceresult?raceId=2.333.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        22:50 R2
+        </a>
+                    </li>
+                    <li class="full" title="6f Conditions Stakes | 10 runners">
+        <a href="/raceresult?raceId=2.333.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        23:15 R3
+        </a>
+                    </li>
+                    <li class="full" title="6f Conditions Stakes | 5 runners">
+        <a href="/raceresult?raceId=2.333.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        23:40 R4
+        </a>
+                    </li>
+                    <li class="full" title="1m Maiden | 9 runners">
+        <a href="/raceresult?raceId=2.333.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:05 R5
+        </a>
+                    </li>
+                    <li class="full" title="1m Conditions Stakes | 10 runners">
+        <a href="/raceresult?raceId=2.333.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:30 R6
+        </a>
+                    </li>
+                    <li class="full" title="5f 110yds Maiden Claiming Stakes | 9 runners">
+        <a href="/raceresult?raceId=2.333.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:55 R7
+        </a>
+                    </li>
+                    <li class="full" title="6f Claiming Stakes | 9 runners">
+        <a href="/raceresult?raceId=2.333.1120907.8" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        01:20 R8
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=2.201&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Hoosier Park
+        </a>
+                
+            </p>
+            <ul>
+                    <li class="full" title="1m Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.201.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        22:30 R1
+        </a>
+                    </li>
+                    <li class="full" title="1m 110yds Conditions Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.201.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        22:56 R2
+        </a>
+                    </li>
+                    <li class="full" title="6f Maiden Claiming Stakes | 10 runners">
+        <a href="/raceresult?raceId=2.201.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        23:22 R3
+        </a>
+                    </li>
+                    <li class="full" title="6f Claiming Stakes | 8 runners">
+        <a href="/raceresult?raceId=2.201.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        23:48 R4
+        </a>
+                    </li>
+                    <li class="full" title="6f Maiden Claiming Stakes | 10 runners">
+        <a href="/raceresult?raceId=2.201.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:14 R5
+        </a>
+                    </li>
+                    <li class="full" title="5f 110yds Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.201.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:40 R6
+        </a>
+                    </li>
+                    <li class="full" title="6f Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.201.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        01:06 R7
+        </a>
+                    </li>
+                    <li class="full" title="7f 110yds Maiden Claiming Stakes | 10 runners">
+        <a href="/raceresult?raceId=2.201.1120907.8" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        01:32 R8
+        </a>
+                    </li>
+                    <li class="future" title="1f 130yds Conditions Stakes ">
+        <a href="/racecard?raceId=2.201.1120907.9" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        01:58 R9
+        </a>
+                    </li>
+                    <li class="future" title="1f 180yds Conditions Stakes ">
+        <a href="/racecard?raceId=2.201.1120907.10" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        02:24 R10
+        </a>
+                    </li>
+                    <li class="future" title="1f 130yds Conditions Stakes ">
+        <a href="/racecard?raceId=2.201.1120907.11" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        02:50 R11
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=2.464&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Turfway Park
+        </a>
+                
+            </p>
+            <ul>
+                    <li class="full" title="1m Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.464.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        23:00 R1
+        </a>
+                    </li>
+                    <li class="full" title="5f 110yds Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.464.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        23:30 R2
+        </a>
+                    </li>
+                    <li class="full" title="6f Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.464.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:00 R3
+        </a>
+                    </li>
+                    <li class="full" title="6f 110yds Claiming Stakes | 8 runners">
+        <a href="/raceresult?raceId=2.464.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:30 R4
+        </a>
+                    </li>
+                    <li class="full" title="6f Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.464.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        01:00 R5
+        </a>
+                    </li>
+                    <li class="full" title="6f Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.464.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        01:30 R6
+        </a>
+                    </li>
+                    <li class="full" title="1m Maiden Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.464.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        02:00 R7
+        </a>
+                    </li>
+                    <li class="full" title="6f Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.464.1120907.8" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        02:30 R8
+        </a>
+                    </li>
+                    <li class="full" title="1m Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.464.1120907.9" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        03:00 R9
+        </a>
+                    </li>
+                    <li class="full" title="1m Conditions Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.464.1120907.10" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        03:30 R10
+        </a>
+                    </li>
+                    <li class="full" title="6f 110yds Claiming Stakes | 9 runners">
+        <a href="/raceresult?raceId=2.464.1120907.11" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        04:00 R11
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=2.330&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Penn National
+        </a>
+                
+            </p>
+            <ul>
+                    <li class="full" title="1m Claiming Stakes | 5 runners">
+        <a href="/raceresult?raceId=2.330.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        23:00 R1
+        </a>
+                    </li>
+                    <li class="full" title="1m Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.330.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        23:28 R2
+        </a>
+                    </li>
+                    <li class="full" title="1m Maiden Claiming Stakes | 5 runners">
+        <a href="/raceresult?raceId=2.330.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        23:56 R3
+        </a>
+                    </li>
+                    <li class="full" title="6f Maiden | 8 runners">
+        <a href="/raceresult?raceId=2.330.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:24 R4
+        </a>
+                    </li>
+                    <li class="full" title="6f Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.330.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:52 R5
+        </a>
+                    </li>
+                    <li class="full" title="6f Conditions Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.330.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        01:20 R6
+        </a>
+                    </li>
+                    <li class="full" title="1m 70yds Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.330.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        01:47 R7
+        </a>
+                    </li>
+                    <li class="full" title="6f Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.330.1120907.8" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        02:14 R8
+        </a>
+                    </li>
+                    <li class="full" title="6f Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.330.1120907.9" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        02:41 R9
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=2.136&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Evangeline Downs
+        </a>
+                
+            </p>
+            <ul>
+                    <li class="full" title="1m 110yds Claiming Stakes | 5 runners">
+        <a href="/raceresult?raceId=2.136.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        23:40 R1
+        </a>
+                    </li>
+                    <li class="full" title="5f Maiden Claiming Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.136.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:05 R2
+        </a>
+                    </li>
+                    <li class="full" title="5f 110yds Maiden | 11 runners">
+        <a href="/raceresult?raceId=2.136.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:30 R3
+        </a>
+                    </li>
+                    <li class="full" title="5f Claiming Stakes | 8 runners">
+        <a href="/raceresult?raceId=2.136.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        00:55 R4
+        </a>
+                    </li>
+                    <li class="full" title="6f Maiden Claiming Stakes | 10 runners">
+        <a href="/raceresult?raceId=2.136.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        01:20 R5
+        </a>
+                    </li>
+                    <li class="full" title="1m 70yds Claiming Stakes | 12 runners">
+        <a href="/raceresult?raceId=2.136.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        01:45 R6
+        </a>
+                    </li>
+                    <li class="full" title="1m Maiden Claiming Stakes | 9 runners">
+        <a href="/raceresult?raceId=2.136.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        02:10 R7
+        </a>
+                    </li>
+                    <li class="full" title="6f Claiming Stakes | 11 runners">
+        <a href="/raceresult?raceId=2.136.1120907.8" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        02:35 R8
+        </a>
+                    </li>
+                    <li class="full" title="1m 110yds Claiming Stakes | 6 runners">
+        <a href="/raceresult?raceId=2.136.1120907.9" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        03:00 R9
+        </a>
+                    </li>
+                    <li class="full" title="7f Claiming Stakes | 13 runners">
+        <a href="/raceresult?raceId=2.136.1120907.10" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        03:25 R10
+        </a>
+                    </li>
+                    <li class="full" title="7f Conditions Stakes | 7 runners">
+        <a href="/raceresult?raceId=2.136.1120907.11" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        03:50 R11
+        </a>
+                    </li>
+                    <li class="full" title="6f Maiden Claiming Stakes | 10 runners">
+        <a href="/raceresult?raceId=2.136.1120907.12" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        04:15 R12
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+    </div>
+</div>        </div>
+
+
+
+
+
+        <div class="module-expandable-wrapper wrapper" data-location="RACING_COUNTRY_AUS_NZ">
+<div class="secondary-module-header open">
+    <h2 class="sub-heading-text">
+        <a href="#toggle-content" class="i13n-sec-country i13n-ltxt-MoreLess i13n-tab-TODO-TAG-TAB">
+        AUS & NZ<span class="races-left"></span><span class="arrow"></span>
+        </a>
+    </h2>
+</div>
+<div class="secondary-module-content" >
+    <div class="inner-daypage">
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=3.17&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Ashburton
+        </a>
+                 | Good
+            </p>
+            <ul>
+                    <li class="full" title="1m2f 97yds Flat | 13 runners">
+        <a href="/raceresult?raceId=3.17.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        01:50 R1
+        </a>
+                    </li>
+                    <li class="full" title="1m2f 97yds Flat | 7 runners">
+        <a href="/raceresult?raceId=3.17.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        02:25 R2
+        </a>
+                    </li>
+                    <li class="full" title="7f 210yds Flat | 5 runners">
+        <a href="/raceresult?raceId=3.17.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        03:00 R3
+        </a>
+                    </li>
+                    <li class="full" title="5f 212yds Flat | 10 runners">
+        <a href="/raceresult?raceId=3.17.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        03:35 R4
+        </a>
+                    </li>
+                    <li class="full" title="5f 212yds Flat | 14 runners">
+        <a href="/raceresult?raceId=3.17.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        04:10 R5
+        </a>
+                    </li>
+                    <li class="full" title="6f 211yds Flat | 9 runners">
+        <a href="/raceresult?raceId=3.17.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        04:45 R6
+        </a>
+                    </li>
+                    <li class="full" title="6f 211yds Flat | 11 runners">
+        <a href="/raceresult?raceId=3.17.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        05:20 R7
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=3.801&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Geelong Synthetic
+        </a>
+                 | Good
+            </p>
+            <ul>
+                    <li class="full" title="4f 214yds Flat | 8 runners">
+        <a href="/raceresult?raceId=3.801.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        03:40 R1
+        </a>
+                    </li>
+                    <li class="full" title="5f 103yds Flat | 10 runners">
+        <a href="/raceresult?raceId=3.801.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        04:15 R2
+        </a>
+                    </li>
+                    <li class="full" title="6f 102yds Flat | 11 runners">
+        <a href="/raceresult?raceId=3.801.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        04:50 R3
+        </a>
+                    </li>
+                    <li class="full" title="1m2f 97yds Flat | 12 runners">
+        <a href="/raceresult?raceId=3.801.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        05:25 R4
+        </a>
+                    </li>
+                    <li class="full" title="4f 214yds Flat | 7 runners">
+        <a href="/raceresult?raceId=3.801.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        06:00 R5
+        </a>
+                    </li>
+                    <li class="future" title="5f 103yds Flat ">
+        <a href="/racecard?id=2.100547490" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        06:35 R6
+        </a>
+                    </li>
+                    <li class="future" title="1m1f 98yds Flat ">
+        <a href="/racecard?id=2.100547492" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        07:15 R7
+        </a>
+                    </li>
+                    <li class="future" title="6f 102yds Flat ">
+        <a href="/racecard?id=2.100547494" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        07:55 R8
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=3.352&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Port Macquarie
+        </a>
+                 | Good
+            </p>
+            <ul>
+                    <li class="full" title="6f 3yds Flat | 12 runners">
+        <a href="/raceresult?raceId=3.352.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        03:48 R1
+        </a>
+                    </li>
+                    <li class="full" title="5f 5yds Flat | 11 runners">
+        <a href="/raceresult?raceId=3.352.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        04:23 R2
+        </a>
+                    </li>
+                    <li class="full" title="5f 5yds Flat | 8 runners">
+        <a href="/raceresult?raceId=3.352.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        04:58 R3
+        </a>
+                    </li>
+                    <li class="full" title="7f 114yds Flat | 11 runners">
+        <a href="/raceresult?raceId=3.352.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        05:33 R4
+        </a>
+                    </li>
+                    <li class="full" title="6f 3yds Flat | 11 runners">
+        <a href="/raceresult?raceId=3.352.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        06:08 R5
+        </a>
+                    </li>
+                    <li class="full" title="1m1f 8yds Flat | 9 runners">
+        <a href="/raceresult?raceId=3.352.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        06:45 R6
+        </a>
+                    </li>
+                    <li class="full" title="7f 114yds Flat | 12 runners">
+        <a href="/raceresult?raceId=3.352.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        07:25 R7
+        </a>
+                    </li>
+                    <li class="full" title="6f 3yds Flat | 12 runners">
+        <a href="/raceresult?raceId=3.352.1120907.8" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        08:05 R8
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=3.486&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Wyong
+        </a>
+                 | Good
+            </p>
+            <ul>
+                    <li class="full" title="5f 212yds Flat | 10 runners">
+        <a href="/raceresult?raceId=3.486.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        03:58 R1
+        </a>
+                    </li>
+                    <li class="full" title="5f 212yds Flat | 14 runners">
+        <a href="/raceresult?raceId=3.486.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        04:33 R2
+        </a>
+                    </li>
+                    <li class="full" title="5f 212yds Flat | 9 runners">
+        <a href="/raceresult?raceId=3.486.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        05:08 R3
+        </a>
+                    </li>
+                    <li class="full" title="6f 156yds Flat | 6 runners">
+        <a href="/raceresult?raceId=3.486.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        05:43 R4
+        </a>
+                    </li>
+                    <li class="full" title="5f 103yds Flat | 7 runners">
+        <a href="/raceresult?raceId=3.486.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        06:18 R5
+        </a>
+                    </li>
+                    <li class="full" title="6f 156yds Flat | 10 runners">
+        <a href="/raceresult?raceId=3.486.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        06:55 R6
+        </a>
+                    </li>
+                    <li class="full" title="1m2f 97yds Flat | 9 runners">
+        <a href="/raceresult?raceId=3.486.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        07:35 R7
+        </a>
+                    </li>
+                    <li class="full" title="7f 210yds Flat | 14 runners">
+        <a href="/raceresult?raceId=3.486.1120907.8" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        08:15 R8
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+        <div class="course">
+            <p class="course-data">
+        <a href="/course?courseId=3.73&amp;date=20120907" class="course-name i13n-sec-country i13n-ltxt-meeting i13n-tab-TODO-TAG-TAB" >
+                    Cairns
+        </a>
+                 | Good
+            </p>
+            <ul>
+                    <li class="full" title="4f 170yds Flat | 12 runners">
+        <a href="/raceresult?raceId=3.73.1120907.1" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        04:05 R1
+        </a>
+                    </li>
+                    <li class="full" title="4f 170yds Flat | 11 runners">
+        <a href="/raceresult?raceId=3.73.1120907.2" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        04:40 R2
+        </a>
+                    </li>
+                    <li class="full" title="6f 47yds Flat | 10 runners">
+        <a href="/raceresult?raceId=3.73.1120907.3" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        05:15 R3
+        </a>
+                    </li>
+                    <li class="full" title="4f 170yds Flat | 7 runners">
+        <a href="/raceresult?raceId=3.73.1120907.4" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        05:50 R4
+        </a>
+                    </li>
+                    <li class="full" title="1m1f 98yds Flat | 10 runners">
+        <a href="/raceresult?raceId=3.73.1120907.5" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        06:25 R5
+        </a>
+                    </li>
+                    <li class="full" title="6f 211yds Flat | 12 runners">
+        <a href="/raceresult?raceId=3.73.1120907.6" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        07:05 R6
+        </a>
+                    </li>
+                    <li class="full" title="7f 100yds Flat | 10 runners">
+        <a href="/raceresult?raceId=3.73.1120907.7" class="i13n-sec-country i13n-ltxt-race i13n-tab-TODO-TAG-TAB" >
+                        07:45 R7
+        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="clearer"></div>
+    </div>
+</div>        </div>
+
+
+</div>
+<div class="clearer"></div>
+
+
+
+</div>
+</div>
+            </div>
+            <div id="market-aside" class="market-aside">
+
+
+<div id="mod-ministartingsoon-657939-container" class="mod">
+
+
+
+
+
+<div id="mod-ministartingsoon-657939" class="mod-ministartingsoon mod-ministartingsoon-ministartingsoon mod-ministartingsoon mod-ministartingsoon-ministartingsoon i13n">
+
+
+<div class="module-wrapper mstartingsoon ">
+    <div class="right-module-header ">
+        <h2 class="sub-heading-text">
+            <a href="#toggle-content" class="mini-starting-soon-expand i13n-sec-startingSoon i13n-ltxt-MoreLess">
+                <em>Starting Soon<span class="arrow"></span></em>
+            </a>
+        </h2>
+    </div>
+    <div class="ministartingsoon-content"  style="display:none">
+<div class="inner-ministartingsoon" data-timer="60000">
+        <div class="loading"></div>
+</div>
+    </div>
+</div>
+
+
+</div>
+</div>
+
+
+<div id="mod-miniliveresults-657940-container" class="mod">
+
+
+
+
+
+<div id="mod-miniliveresults-657940" class="mod-miniliveresults mod-miniliveresults-miniliveresults mod-miniliveresults mod-miniliveresults-miniliveresults i13n">
+
+
+<div class="module-expandable-wrapper wrapper">
+    <div class="right-module-header ">
+        <h2 class="sub-heading-text">
+            <a href="#" class="mini-live-results-expand i13n-sec-liveResults i13n-ltxt-MoreLess">
+                <em>Live Results <span class="arrow"></span></em>
+            </a>
+        </h2>
+    </div>
+    <div class="secondary-module-content" style="display:none">
+<div class="inner-miniliveresults">
+        <div class="loading"></div>
+</div>
+    </div>
+</div>
+
+
+</div>
+</div>
+
+
+<div id="mod-banner-657941-container" class="mod">
+
+
+
+
+
+<div id="mod-banner-657941" class="mod-banner mod-banner-banner">
+
+    <ul>
+                <li class="single multiple last">
+    <a href="http://www.timeform.com/display_articles.asp?page=join_freeform.asp" target="_blank"><img src='http://cache.cdnbf.net/content/timeform/Banner-OtherPages-304x151v2.png' class='banner-item' onerror="this.style.visibility='hidden';" /></a>
+                </li>
+    </ul>
+
+
+
+</div>
+</div>
+            </div>
+        </div>
+        <div id="foot">
+            <div class="h5-footer" role="contentinfo">
+
+
+<div id="mod-footer-657943-container" class="mod">
+
+
+
+
+
+<div id="mod-footer-657943" class="mod-footer mod-footer-footer">
+<div class="footer-logo"></div>
+
+<div class="footer-links">
+    <p><a href="/termsofuse" class="terms-and-conditions" data-popup="width:784,height:600,scrollbars:yes">Terms of Use</a> | <a href="mailto:help@timeform.com?subject=From%20timeform.com/free">Contact Us</a></p>
+    <p>US data from <a href="http://www.equibase.com" target="_blank">Equibase</a></p>
+</div>
+<div class="footer-copyright">
+    <p>&copy; The Sporting Exchange Ltd. and The Portway Press Ltd.</p>
+    <p>Betfair &reg;. Timeform &reg;. All rights reserved.</p>
+</div>
+<div class="clearer"></div>
+</div>
+</div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        platformConfig = {"preferences":["tournamentContent","consolidated","displayStakeLadder","preferenceGroupTitleStates","flashUpdate","marketViewDisplayType","displayMiniGames","couponStakeAmount1","couponStakeAmount2","displayProfitAndLoss","couponStakeAmount3","uiView","couponStakeAmount4","displayMyMarketsDefault","couponStakeAmount5","showRaceDetailsMouseOvers","displayProjectedOdds","displayBetHelpTabDefault","miniGamesEnabled","singleClickBetting","displayStartingPrices","includeNetCommission","displayFutureProfitAndLoss","showDemoHelp","averageOdds","liabilityView","verifyBet","displayBetStatusTitle","layColour","showFractionalOdds","displayRaceCardInfo","tournamentNavigation","showMouseOverHelp","useFloatingBetSlip","autoRefresh","percentageBook","matchedBets","showBetSummaryMessaging","enhancedView","includeSettledBets","userID","showHelp","clusterUnmatchedBets","displayMarketDepth","displayZoneVideo","displayLiveScores","showBspWarning","displayLayPrices","betInfo"],"toggles":[],"page":{"config":{"title":{"default":"PAGETITLE.TIMEFORM"},"keywords":{"default":"PAGEKEYWORDS.TIMEFORM"},"description":{"default":"PAGEDESCRIPTION.TIMEFORM"},"intl":{"currencyFormat":{"currencyCode":"GBP","thousandsSeparator":",","prefix":"£","decimalSeparator":".","suffix":"","decimalPlaces":2},"oddsconverter":{"convertToType":"fractional"}},"name":"Cards & Results","requestURI":"/daypage","isAjaxRequest":false,"analytics":{"i13n":{"enabled":true,"defaultKeys":{"product":"timeform","platform":"mnts","page":"daypage","loc":"en_GB"},"timeout":8000}},"pageLoadTimeout":8000},"layout":{"footer":["footer"],"nav":["navigation-bar"],"login":[],"aside":["ministartingsoon","miniliveresults","banner"],"header":["header"],"main":["daypagenavigation","daypageheader","daypage"]}},"modules":[{"constructor":"Footer","type":"footer","moduleId":"footer","instanceId":"657943","config":{"srcNode":"#mod-footer-657943","boundingBox":"#mod-footer-657943-container","container":true,"analytics":{"i13n":{"enabled":false,"bubbleToParent":false,"namespace":"i13n"}},"requires":{"js":["footer"],"css":["footer"]}},"services":[],"translations":{},"modules":[]},{"constructor":"NavigationBar","type":"navigation-bar","moduleId":"navigation-bar","instanceId":"657942","config":{"srcNode":"#mod-navigation-bar-657942","boundingBox":"#mod-navigation-bar-657942-container","container":true,"currentPage":"/daypage","analytics":{"i13n":{"enabled":true,"listenOn":"a.timeform-radio, a.home, a.daypage","bubbleToParent":false,"namespace":"i13n"}},"requires":{"js":["navigation-bar"],"css":["navigation-bar"]}},"services":[],"translations":{},"modules":[]},{"constructor":"MiniStartingSoon","type":"ministartingsoon","moduleId":"ministartingsoon","instanceId":"657939","config":{"srcNode":"#mod-ministartingsoon-657939","boundingBox":"#mod-ministartingsoon-657939-container","expandedByDefault":false,"container":true,"ajax":{"enabled":true},"analytics":{"i13n":{"enabled":true,"listenOn":"a.mini-starting-soon-expand, a.race-info-anchor","bubbleToParent":false,"namespace":"i13n"}},"requires":{"js":["ministartingsoon"],"css":["ministartingsoon"]},"refreshRate":60000},"services":["transport"],"translations":{},"modules":[]},{"constructor":"MiniLiveResults","type":"miniliveresults","moduleId":"miniliveresults","instanceId":"657940","config":{"srcNode":"#mod-miniliveresults-657940","boundingBox":"#mod-miniliveresults-657940-container","expandedByDefault":false,"container":true,"ajax":{"enabled":true},"analytics":{"i13n":{"enabled":true,"listenOn":"a.mini-live-results-expand, a.top-three-horse, a.market-view-anchor","bubbleToParent":false,"namespace":"i13n"}},"requires":{"js":["miniliveresults"],"css":["miniliveresults"]},"refreshRate":60000},"services":["transport"],"translations":{},"modules":[]},{"constructor":"Banner","type":"banner","moduleId":"banner","instanceId":"657941","config":{"srcNode":"#mod-banner-657941","boundingBox":"#mod-banner-657941-container","container":true,"analytics":{"i13n":{"enabled":false,"bubbleToParent":false,"namespace":"i13n"}},"requires":{"js":["banner"],"css":["banner"]}},"services":[],"translations":{},"modules":[]},{"constructor":"Header","type":"header","moduleId":"header","instanceId":"657933","config":{"srcNode":"#mod-header-657933","region":"GBR","defaultLocale":"en","boundingBox":"#mod-header-657933-container","supportedRegions":["AUS_NZL","GBR","IRL","NA","ZAF"],"defaultRegion":"GBR","container":true,"changeLocaleAction":"/changeLocale","debug":{"enabled":0},"analytics":{"i13n":{"enabled":true,"listenOn":"a.home","bubbleToParent":false,"namespace":"i13n"}},"requires":{"js":["header"],"css":["header"]}},"services":[],"translations":{},"modules":[{"constructor":"InstantSearchEBS","type":"instantsearch-ebs","moduleId":"instantsearch-ebs","instanceId":"657953","config":{"srcNode":"#mod-instantsearch-ebs-657953","queryString":"","boundingBox":"#mod-instantsearch-ebs-657953-container","container":true,"ajax":{"enabled":true},"analytics":{"i13n":{"enabled":false,"bubbleToParent":false,"namespace":"i13n"}},"requires":{"js":["instantsearch-ebs"],"css":["instantsearch-ebs"]}},"services":[],"translations":{},"modules":[]}]},{"constructor":"DayPageNavigation","type":"daypagenavigation","moduleId":"daypagenavigation","instanceId":"657935","config":{"srcNode":"#mod-daypagenavigation-657935","boundingBox":"#mod-daypagenavigation-657935-container","container":true,"ajax":{"enabled":true},"analytics":{"i13n":{"enabled":true,"listenOn":"a","bubbleToParent":false,"namespace":"i13n"}},"requires":{"js":["daypagenavigation"],"css":["daypagenavigation"]}},"services":["transport"],"translations":{},"modules":[{"constructor":"Calendar","type":"calendar","moduleId":"calendar","instanceId":"657954","config":{"srcNode":"#mod-calendar-657954","boundingBox":"#mod-calendar-657954-container","container":true,"fromTimestamp":"1346972400000","ajax":{"enabled":true},"analytics":{"i13n":{"enabled":false,"bubbleToParent":false,"namespace":"i13n"}},"requires":{"js":["calendar"],"css":["calendar"]}},"services":[],"translations":{},"modules":[]}]},{"constructor":"DayPageHeader","type":"daypageheader","moduleId":"daypageheader","instanceId":"657937","config":{"srcNode":"#mod-daypageheader-657937","boundingBox":"#mod-daypageheader-657937-container","container":true,"analytics":{"i13n":{"enabled":true,"listenOn":"a.listen-message","bubbleToParent":false,"namespace":"i13n"}},"requires":{"js":["daypageheader"],"css":["daypageheader"]}},"services":[],"translations":{},"modules":[]},{"constructor":"DayPage","type":"daypage","moduleId":"daypage","instanceId":"657938","config":{"srcNode":"#mod-daypage-657938","boundingBox":"#mod-daypage-657938-container","container":true,"ajax":{"enabled":true},"analytics":{"i13n":{"enabled":true,"listenOn":"a","bubbleToParent":false,"namespace":"i13n"}},"requires":{"js":["daypage"],"css":["daypage"]},"limitRaces":12,"refreshRate":60000},"services":[],"translations":{},"modules":[]}],"services":[{"constructor":"Transport","type":"transport","moduleId":"transport","config":{"services":{"getMarketList":{"path":"/www/rest/sports/global/v1.0/fastlinks"},"getEventDetails":{"path":"/inplayservice/v1.0/eventDetails"},"getFobMarketData":{"schema":"FOB","path":"/www/sports/fixedodds/readonly/v1.0/getMarketPrices"},"getLiveInfo":{"path":"/sportsservice/v1.0/liveRaceInfo"},"getFullMarketData":{"path":"/betting/api/json/getFullMarketData.do"},"getVolatileMarketData":{"path":"/tournament/api/updateMarketList.do"},"getMessages":{"path":"/services/ws/getMessages"},"fobImplyBets":{"path":"/www/sports/fixedodds/transactional/v1.0/implyBets?alt=json"},"getScores":{"path":"/inplayservice/v1.0/scores"},"allMarkets":{"path":"/www/sports/exchange/readonly/v1.0/allmarkets"},"getEventsInPlay":{"path":"/inplayservice/v1.0/eventsInPlay"},"getStaticMarketData":{"schema":"ERO","path":"/www/sports/exchange/readonly/v1.0/bymarket"},"etxPlaceBetsEdit":{"path":"${etx.placebetsedit.path}"},"webMessagingService":{"path":"/services/ws/"},"etxCashout":{"path":"${etx.cashout.path}"},"betslipPersistence":{"path":"/betslip"},"getTimeline":{"path":"/inplayservice/v1.0/eventTimeline"},"etxPlaceBetsLay":{"path":"${etx.placebetslay.path}"},"getUserData":{"path":"/account/api/getUser.do"},"wallets":{"path":"/wallet"},"getNextStart":{"path":"/www/rest/sports/global/v1.0/nextStart"},"getTime":{"path":"/content/api/getTime.do"},"etxPlaceBetsBack":{"path":"${etx.placebetsback.path}"},"getSportsWithZonePages":{"path":"/www/rest/sports/global/v1.0/zonesEventTypeIds"},"getLiveResults":{"path":"/sportsservice/v1.0/liveResults"},"fobPlaceBets":{"path":"/www/sports/fixedodds/transactional/v1.0/placeBet?alt=json"}},"servers":{"aus-api":"http://aus-api.betfair.com","in-play":"","uk-api":"http://uk-api.betfair.com","sports":"http://sports.betfair.com","web-messaging":"https://messaging.betfair.com","mantis":""},"loggedIn":false,"requires":{"js":["transport-service"]},"timeout":5000},"services":[]}]};
+    </script>
+
+
+        </body>
+    </html>

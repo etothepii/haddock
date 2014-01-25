@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/factories/RacecourseFactory.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/factories/RaceFactory.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/factories/BFMarketFactory.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/factories/SelectionFactory.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/factories/AliasFactory.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/factories/HaddockBFFactory.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/log4j.properties</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/factories/NonrunnerFactory.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/tables/Alias.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/tables/BFEvent.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/factories/BankAccountFactory.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/MasterController.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/tables/Horse.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/factories/HorseFactory.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/tables/enumerations/RacecourseVendor.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/tables/Racecourse.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/tables/enumerations/Vendor.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/factories/BookmakerFactory.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/factories/IdentityFactory.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/factories/CardFactory.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/HaddockStatement.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/factories/MarketSelectionFactory.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/factories/BFEventFactory.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/factories/BookmakerAccountBalanceFactory.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/factories/BookmakerAccountFactory.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/factories/BookmakerShopFactory.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/factories/SportingBetMatchFactory.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/factories/TimeformResultFactory.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/factories/BFHistoricalHorseracingDatumFactory.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/factories/BFMUBetFactory.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/uk/co/etothepii/haddock/db/factories/BFPriceDataFactory.java</file>
+        <file>file:/Users/jrrpl/NetBeansProjects/HaddockDatabase/src/haddockdatabase/CodeGenerator.java</file>
+    </open-files>
+</project-private>
